@@ -21,5 +21,5 @@ extern int putenv(char*);
 
 BOOST_AUTO_TEST_SUITE ( test )
 #include "decimalTest.ipp"
-//#include "decimalTestIo.ipp"
+#include "decimalTestIo.ipp"
 BOOST_AUTO_TEST_SUITE_END( )

@@ -9,7 +9,7 @@
 
 #include <iostream>
 
-#include "decimal.h"
+#include <dec/fixed.h>
 
 using namespace std;
 

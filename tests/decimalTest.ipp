@@ -7,7 +7,7 @@
 // Licence:     BSD
 /////////////////////////////////////////////////////////////////////////////
 
-#include "decimal.h"
+#include <dec/fixed.h>
 #include <boost/integer_traits.hpp>
 
 /*
