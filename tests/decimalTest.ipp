@@ -235,6 +235,10 @@ BOOST_AUTO_TEST_CASE(decimalMultiplyPrec)
 
                 // check as dec 6
                 BOOST_CHECK_EQUAL(dec::decimal<6>("35000.000005") * dec::decimal<6>("54123.654133"), dec::decimal<6>("1894327894.925618"));
+
+                // check different prec
+                BOOST_CHECK_EQUAL(dec::decimal<5>("10.00001") * dec::decimal<3>("50.003"), dec::decimal<5>("500.0305"));
+                BOOST_CHECK_EQUAL(dec::decimal<3>("50.003") * dec::decimal<5>("10.00001"), dec::decimal<3>("500.031"));
         }
 
 BOOST_AUTO_TEST_CASE(decimalMultiplyInt)
@@ -262,6 +266,13 @@ BOOST_AUTO_TEST_CASE(decimalMultiplyInt)
                 BOOST_CHECK_EQUAL(dec::decimal<4>("-1.1001") * -3, dec::decimal<4>("3.3003"));
                 BOOST_CHECK_EQUAL(dec::decimal<4>("-1.0001") * -3, dec::decimal<4>("3.0003"));
                 BOOST_CHECK_EQUAL(dec::decimal<4>("-1.0") * -3, dec::decimal<4>("3.0"));
+        }
+
+BOOST_AUTO_TEST_CASE(decimalDivPrec)
+        {
+                BOOST_CHECK_EQUAL(dec::decimal<4>("1.0000") / 16,  dec::decimal<4>("0.0625"));
+                BOOST_CHECK_EQUAL(dec::decimal<4>("1.0000") / 32,  dec::decimal<4>("0.0313"));
+                BOOST_CHECK_EQUAL(dec::decimal<4>("1.0000") / 64,  dec::decimal<4>("0.0156"));
         }
 
 BOOST_AUTO_TEST_CASE(decimalDivInt)
