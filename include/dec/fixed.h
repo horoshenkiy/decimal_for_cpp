@@ -1122,11 +1122,11 @@ public:
     // Methods
     // ----------------------------------------------------------------------------
 
-    int64 getPrecFactor() {
+    int64 getPrecFactor() const {
         return getPrecFactorInt64(m_prec);
     }
 
-    int getDecimalPoints() {
+    int getDecimalPoints() const {
         return m_prec;
     }
 
