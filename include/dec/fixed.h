@@ -904,15 +904,15 @@ public:
         }
     }
 
-    bool operator>(const decimal_rt &rhs) {
+    bool operator>(const decimal_rt &rhs) const {
         return rhs < *this;
     }
 
-    bool operator<=(const decimal_rt &rhs) {
+    bool operator<=(const decimal_rt &rhs) const {
         return !(rhs < *this);
     }
 
-    bool operator>=(const decimal_rt &rhs) {
+    bool operator>=(const decimal_rt &rhs) const {
         return !(*this < rhs);
     }
 
