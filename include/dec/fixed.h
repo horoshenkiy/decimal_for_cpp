@@ -924,14 +924,14 @@ public:
         decimal_rt result = *this;
         if (other.m_prec > m_prec) {
             int64 val;
-            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_value - this->m_value));
+            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_prec - this->m_prec));
             result.m_value += val;
         }
         else if (other.m_prec == m_prec) {
             result.m_value += other.m_value;
         }
         else {
-            result.m_value += other.getUnbiased() * getPrecFactorInt64(this->m_value - other.m_value);
+            result.m_value += other.getUnbiased() * getPrecFactorInt64(this->m_prec - other.m_prec);
         }
 
         return result;
@@ -941,14 +941,14 @@ public:
 
         if (other.m_prec > m_prec) {
             int64 val;
-            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_value - this->m_value));
+            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_prec - this->m_prec));
             this->m_value += val;
         }
         else if (other.m_prec == m_prec) {
             this->m_value += other.m_value;
         }
         else {
-            this->m_value += other.getUnbiased() * getPrecFactorInt64(this->m_value - other.m_value);
+            this->m_value += other.getUnbiased() * getPrecFactorInt64(this->m_prec - other.m_prec);
         }
 
         return *this;
@@ -966,14 +966,14 @@ public:
         decimal_rt result = *this;
         if (other.m_prec > m_prec) {
             int64 val;
-            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_value - this->m_value));
+            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_prec - this->m_prec));
             result.m_value -= val;
         }
         else if (other.m_prec == m_prec) {
             result.m_value -= other.m_value;
         }
         else {
-            result.m_value -= other.getUnbiased() * getPrecFactorInt64(this->m_value - other.m_value);
+            result.m_value -= other.getUnbiased() * getPrecFactorInt64(this->m_prec - other.m_prec);
         }
 
         return result;
@@ -983,14 +983,14 @@ public:
 
         if (other.m_prec > m_prec) {
             int64 val;
-            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_value - this->m_value));
+            RoundPolicy::div_rounded(val, other.getUnbiased(), getPrecFactorInt64(other.m_prec - this->m_prec));
             this->m_value -= val;
         }
         else if (other.m_prec == m_prec) {
             this->m_value -= other.m_value;
         }
         else {
-            this->m_value -= other.getUnbiased() * getPrecFactorInt64(this->m_value - other.m_value);
+            this->m_value -= other.getUnbiased() * getPrecFactorInt64(this->m_prec - other.m_prec);
         }
 
         return *this;
