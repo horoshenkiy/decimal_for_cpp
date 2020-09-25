@@ -1178,7 +1178,7 @@ public:
     /// Returns two parts: before and after decimal_rt point
     /// For negative values both numbers are negative or zero.
     void unpack(int64 &beforeValue, int64 &afterValue) const {
-        uint64_t factor = getPrecFactorInt64(m_prec);
+        int64_t factor = getPrecFactorInt64(m_prec);
         afterValue = m_value % factor;
         beforeValue = (m_value - afterValue) / factor;
     }
@@ -1190,7 +1190,7 @@ public:
     /// \param[in] afterValue value after decimal_rt point multiplied by 10^prec
     /// \result Returns *this
     decimal_rt &pack(int64 beforeValue, int64 afterValue) {
-        uint64_t factor = getPrecFactorInt64(m_prec);
+        int64_t factor = getPrecFactorInt64(m_prec);
         if (m_prec > 0) {
             m_value = beforeValue * factor;
             m_value += (afterValue % factor);
